@@ -9,6 +9,7 @@ AV.init({
 $.ajax({
     url: 'http://localhost:8888/uptoken',
     success: function(res){
+        var domain = res.domain;
         var token = res.uptoken;
         var putExtra = {
             fname: "",
@@ -16,34 +17,42 @@ $.ajax({
             mimeType: null
         };
         var config = {
-            useCdnDomain: true,
             disableStatisticsReport: false,
             retryCount: 6,
             region: qiniu.region.z1
         };
-        uploadWithSDK(token, putExtra, config);
+        uploadWithSDK(token, putExtra, config, domain);
     }
 })
-function uploadWithSDK(token, putExtra, config){
+function uploadWithSDK(token, putExtra, config, domain){
     $("#select").unbind("change").bind("change", function () {
         var file = this.files[0];
         if (file) {
             var key = file.name;
-
+            var size = file.size;
         }
         var observer = {
             next(res){
-                // ...
+                console.log(res)
             },
             error(err){
-                alert('上传失败，请重试')
+                console.log(err);
+                alert('上传失败，请重试');
             },
             complete(res){
-                alert('上传成功')
+                console.log(res);
+                var sourceLink = 'http://' + domain + '/' + encodeURIComponent(res.key);
+                console.log(sourceLink)
+                alert('上传成功');
             }
         };
-        console.log(qiniu.region.z1);
-        var observable = qiniu.upload(file, "test", token, putExtra, config);
+        var observable = qiniu.upload(
+            file,
+            key,
+            token,
+            putExtra,
+            config
+        );
         var subscription = observable.subscribe(observer); // 上传开始
     });
 }

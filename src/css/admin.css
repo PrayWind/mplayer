@@ -1,0 +1,297 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    min-width: 1120px;
+    background-color: rgb(245, 245, 245);
+}
+
+.header{
+    height: 61px;
+    background: linear-gradient(#827265,#716053);
+    background: -webkit-linear-gradient(top,#827265,#716053);
+    border-bottom: 1px #564944 solid;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.header .container{
+    width: 1120px;
+    margin: 0 auto;
+}
+
+.header h1{
+    color: #fff;
+    line-height: 61px;
+    text-align: center;
+}
+
+.page{
+    height: 100vh;
+    width: 1120px;
+    margin: 0 auto;
+    padding-top: 61px;
+}
+
+.songlist{
+    width: 342px;
+    height: 100%;
+    float: left;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    box-shadow: rgba(0,0,0,.07) 0 1px 3px;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.songlist::-webkit-scrollbar{
+    width: 5px!important;
+}
+
+.songlist::-webkit-scrollbar-thumb{
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+
+.songlist .title{
+    background: linear-gradient(#fff,#f5f5f5);
+    height: auto;
+    width: 340px;
+    overflow: visible;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+
+.songlist .title h2{
+    text-align: center;
+    color: #666;
+    border-bottom: 1px solid #eee;
+    font-weight: 700;
+    font-size: 20px;
+    height: 61px;
+    line-height: 61px;
+}
+
+.songlist .title .songlist-header{
+    padding: 0 28px;
+    border-bottom: 1px solid #dcdcdc;
+    line-height: 50px;
+    color: #999;
+}
+
+.songlist .title .songlist-header span:first-child{
+    display: inline-block;
+    width: 200px;
+}
+
+.songlist .songlist-ul li{
+    padding: 0 28px;
+    line-height: 50px;
+    border-bottom: 1px solid #eee;
+    color: #424242;
+    font-size: 16px;
+    background-color: #fff;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.songlist .songlist-ul li:nth-child(even){
+    background-color: #fefefe;
+}
+
+.songlist .songlist-ul li::after{
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.songlist .songlist-ul li:hover{
+    background-color: #f5f5f5;
+}
+
+.songlist .songlist-ul li span{
+    display: block;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.songlist .songlist-ul li span.song-name{
+    width: 170px;
+    margin-right: 30px;
+}
+
+.songlist .songlist-ul li span.singer{
+    width: 79px;
+    color: #999;
+}
+
+.main{
+    width: 758px;
+    float: right;
+    height: 100%;
+    padding: 50px;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    box-shadow: rgba(0,0,0,.07) 0 1px 3px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.main::-webkit-scrollbar{
+    width: 5px!important;
+}
+
+.main::-webkit-scrollbar-thumb{
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+
+.main .song-info{
+    width: 100%;
+    margin-bottom: 50px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #eee;
+}
+
+.main .song-info form{
+    width: 100%;
+}
+
+.main .song-info .row{
+    margin-top: 40px;
+}
+
+.main .song-info .row:first-child{
+    margin-top: 0;
+}
+
+.main .song-info .row label{
+    display: inline-block;
+    width: 100px;
+    height: 42px;
+    line-height: 42px;
+    letter-spacing: 0.1em;
+    font-size: 16px;
+    color: #888;
+}
+
+.main .song-info .row:last-child label{
+    height: 1px;
+}
+
+.main .song-info input[type=text]{
+    background: #fff;
+    box-shadow: 0 3px 5px -4px rgba(0,0,0,.4) inset, -1px 0 3px -2px rgba(0,0,0,.1) inset;
+    border: #ccc solid 1px;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    opacity: 0.76;
+    width: 450px;
+    height: 40px;
+    line-height: 40px;
+    transition: .3s ease-in;
+    -moz-transition: .3s ease-in;
+    padding: 10px;
+}
+
+.main .song-info input[type=submit]{
+    height: 41px;
+    width: 160px;
+    line-height: 40px;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #6191f2;
+    background: linear-gradient(#679af6,#5584f4);
+    background: -webkit-linear-gradient(#679af6,#5584f4);
+    text-align: center;
+    display: inline-block;
+    transition: .3s;
+}
+
+.main .song-info input[type=submit]:hover{
+    background: #6084cf;
+    background: linear-gradient(#6d94e0,#5272bb);
+    background: -webkit-linear-gradient(#6d94e0,#5272bb);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+.main .song-info input[type=text]:focus{
+    border-color: #6b93f2;
+    opacity: 1;
+}
+
+.file-uploader{
+    width: 550px;
+}
+
+.file-uploader .file-select-wrap{
+    height: 150px;
+    border: 2px dashed #ccc;
+    border-radius: 20px;
+    line-height: 150px;
+    text-align: center;
+    position: relative;
+}
+
+.file-uploader .file-select-wrap:hover{
+    border-color: #6b93f2;
+}
+
+.file-uploader .file-select-wrap span{
+    color: #999;
+}
+
+.file-uploader .file-select-wrap .file-input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.file-uploader .file-info{
+    margin-top: 30px;
+}
+
+.file-uploader .file-info li{
+    color: #bbb;
+    font-size: 14px;
+    float: left;
+}
+
+.file-uploader .file-info li span{
+    color: #888;
+}
+
+.file-uploader .file-info li:nth-child(1){
+    width: 55%;
+}
+
+.file-uploader .file-info li:nth-child(2){
+    width: 25%;
+}
+
+.file-uploader .file-info li:nth-child(3){
+    width: 20%;
+}

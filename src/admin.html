@@ -2,14 +2,63 @@
 <html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>后台管理</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/admin.css">
 </head>
 <body>
-<div id="box2">
-    <button class="select-button">选择文件</button>
-    <input class="file-input" type="file" id="select" />
+<div class="header">
+    <div class="container"><h1>XXX Music 后台管理</h1></div>
+</div>
+<div class="page">
+    <aside class="songlist">
+        <div class="title">
+            <h2>歌曲列表</h2>
+            <div class="songlist-header">
+                <span>歌曲名称</span>
+                <span>歌手</span>
+            </div>
+        </div>
+        <ul class="songlist-ul">
+            <li><span class="song-name">晴天</span><span class="singer">周杰伦</span></li>
+            <li><span class="song-name">七里香</span><span class="singer">周杰伦</span></li>
+            <li><span class="song-name">旅行的意义</span><span class="singer">陈绮贞</span></li>
+        </ul>
+    </aside>
+    <div class="main">
+        <div class="song-info">
+            <form>
+                <div class="row">
+                    <label for="song-name">歌曲标题：</label>
+                    <input id="song-name" name="song" type="text" />
+                </div>
+                <div class="row">
+                    <label for="song-singer">歌&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手：</label>
+                    <input id="song-singer" name="singer" type="text" />
+                </div>
+                <div class="row">
+                    <label for="song-name">歌曲链接：</label>
+                    <input id="song-url" name="url" type="text" />
+                </div>
+                <div class="row">
+                    <label></label>
+                    <input id="submit-button" name="submit-button" type="submit" />
+                </div>
+            </form>
+        </div>
+        <div class="file-uploader">
+            <div class="file-select-wrap">
+                <input class="file-input" type="file" id="select" />
+                <span>点击或拖拽文件上传</span>
+            </div>
+            <ul class="file-info">
+                <li>FileName：<span id="file-name">dfasd87fasd7sd86s.jpg</span></li>
+                <li>Size：<span id="file-size">2131K</span></li>
+                <li>Process：<span id="file-process">90%</span></li>
+            </ul>
+        </div>
+    </div>
 </div>
 <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
 <script src="../node_modules/jQuery/tmp/jquery.js"></script>
