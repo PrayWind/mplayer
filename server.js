@@ -33,9 +33,10 @@ var server = http.createServer(function(request, response){
             scope: 'music',
         };
         var putPolicy = new qiniu.rs.PutPolicy(options);
-        var uploadToken=putPolicy.uploadToken(mac);
+        var uploadToken = putPolicy.uploadToken(mac);
         response.write(`{
-        "uptoken": "${uploadToken}"
+        "uptoken": "${uploadToken}",
+        "domain": "paj0x8dsg.bkt.clouddn.com"
         }`);
             response.end()
     }else{
