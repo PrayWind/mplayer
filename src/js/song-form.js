@@ -47,7 +47,7 @@
             song.set('url', data.url);
             return song.save().then((response)=>{
                 Object.assign(this.data, data);
-                return response
+                return response;
             });
         },
         create(data){
@@ -76,12 +76,15 @@
         bindevent(){
             $(this.view.el).on('submit','form', (e) => {
                 e.preventDefault();
-                if(this.model.data.id){
-                    this.update()
-                }else{
-                    this.create();
+                let data = this.getData();
+                if(this.model.data !== data){
+                    if(this.model.data.id){
+                        this.update()
+                    }else{
+                        this.create();
+                    }
+                    this.view.disabledBtn()
                 }
-                this.view.disabledBtn()
             });
 
             $(this.view.el).on('change','input', (e) => {
@@ -110,11 +113,10 @@
         update(){
             let data = this.getData();
 
-            this.model.update(data).then(()=>{
-                window.eventHub.emit('update', this.JSON.parse(JSON.stringify(this.model.data)));
+            this.model.update(data).then((res)=>{
+                window.eventHub.emit('update', JSON.parse(JSON.stringify(this.model.data)) );
+                alert("保存成功");
             });
-
-            alert("提交成功")
         },
         getData(){
             let needs = 'name singer url'.split(' ');
@@ -127,10 +129,8 @@
         bindEventHub(){
             window.eventHub.on('renderForm', (data)=>{
                 this.view.render(data);
-                this.model.data = {
-                    name: '', singer:'', url:'', id: ''
-                };
-                if(this.model.data !== data){
+                this.model.data = {};
+                if(data.name || data.url || data.singer){
                     this.view.focusBtn()
                 }else{
                     this.view.disabledBtn()

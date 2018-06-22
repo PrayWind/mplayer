@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e367c1c0-4b99-41ea-bc95-0105ed6049a8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/admin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/song-form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/song-form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/song-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/song-list.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="song-list.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="song-list.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/song-list.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
+            <state relative-caret-position="519">
+              <caret line="75" column="10" lean-forward="true" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -54,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="song-form.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="song-form.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/song-form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="655">
-              <caret line="136" column="17" selection-start-line="136" selection-start-column="17" selection-end-line="136" selection-end-column="17" />
+            <state relative-caret-position="276">
+              <caret line="116" column="44" selection-start-line="116" selection-start-column="38" selection-end-line="116" selection-end-column="44" />
               <folding>
                 <element signature="e#328#334#0" expanded="true" />
                 <element signature="e#334#340#0" expanded="true" />
@@ -74,8 +74,8 @@
       <file leaf-file-name="add-song.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/add-song.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="53" />
+            <state relative-caret-position="594">
+              <caret line="22" column="58" lean-forward="true" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -119,10 +119,10 @@
       <find>songlist</find>
       <find>token</find>
       <find>domain</find>
-      <find>renderForm</find>
       <find>title</find>
       <find>create</find>
       <find>console</find>
+      <find>renderForm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,10 +142,10 @@
         <option value="$PROJECT_DIR$/src/admin.html" />
         <option value="$PROJECT_DIR$/src/js/upload-song.js" />
         <option value="$PROJECT_DIR$/src/js/modify-title.js" />
-        <option value="$PROJECT_DIR$/src/js/add-song.js" />
         <option value="$PROJECT_DIR$/src/css/admin.css" />
-        <option value="$PROJECT_DIR$/src/js/song-list.js" />
+        <option value="$PROJECT_DIR$/src/js/add-song.js" />
         <option value="$PROJECT_DIR$/src/js/song-form.js" />
+        <option value="$PROJECT_DIR$/src/js/song-list.js" />
       </list>
     </option>
   </component>
@@ -189,24 +189,6 @@
               <item name="music-player" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="music-player" type="b2602c69:ProjectViewProjectNode" />
-              <item name="music-player" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="music-player" type="b2602c69:ProjectViewProjectNode" />
-              <item name="music-player" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="initializers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="music-player" type="b2602c69:ProjectViewProjectNode" />
-              <item name="music-player" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -244,12 +226,12 @@
       <updated>1529084450429</updated>
       <workItem from="1529084452204" duration="1344000" />
       <workItem from="1529335841160" duration="2909000" />
-      <workItem from="1529420106312" duration="108264000" />
+      <workItem from="1529420106312" duration="112917000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112517000" />
+    <option name="totallyTimeSpent" value="117170000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -369,24 +351,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/modify-title.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/upload-song.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="654">
           <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/add-song.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -397,17 +365,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/song-list.js">
+    <entry file="file://$PROJECT_DIR$/src/js/modify-title.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
+        <state relative-caret-position="540">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/add-song.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="22" column="58" lean-forward="true" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/song-form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="136" column="17" selection-start-line="136" selection-start-column="17" selection-end-line="136" selection-end-column="17" />
+        <state relative-caret-position="276">
+          <caret line="116" column="44" selection-start-line="116" selection-start-column="38" selection-end-line="116" selection-end-column="44" />
           <folding>
             <element signature="e#328#334#0" expanded="true" />
             <element signature="e#334#340#0" expanded="true" />
@@ -416,6 +391,13 @@
             <element signature="e#352#358#0" expanded="true" />
             <element signature="e#358#364#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/song-list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="75" column="10" lean-forward="true" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
         </state>
       </provider>
     </entry>
