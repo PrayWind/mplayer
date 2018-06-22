@@ -13,7 +13,11 @@
             let liList = songs.map((song) => {
                 let nameSpan = $('<span></span>').addClass('song-name').text(song.name);
                 let singerSpan = $('<span></span>').addClass('singer').text(song.singer);
-                return $('<li></li>').append(nameSpan).append(singerSpan).attr('data-song-id', song.id);
+                let $li = $('<li></li>').append(nameSpan).append(singerSpan).attr('data-song-id', song.id);
+                if(song.id === selectSongId){
+                    this.activeItem($li);
+                }
+                return $li;
             });
             $(this.el).find('ul').empty();
 
@@ -76,8 +80,10 @@
         },
         bindEvents(){
             $(this.view.el).on('click','li',(e)=>{
-                this.view.activeItem(e.currentTarget);
+                // this.view.activeItem(e.currentTarget);
                 let songId = e.currentTarget.getAttribute('data-song-id');
+                this.model.data.selectSongId = songId;
+                this.view.render(this.model.data);
                 let data;
                 let songs = this.model.data.songs;
                 for(let i = 0; i < songs.length; i++){
