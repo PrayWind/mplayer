@@ -14,7 +14,13 @@
             this.view = view;
             this.model = model;
             view.render();
+            this.bindevent();
         },
+        bindevent(){
+            $(view.el).on('click',()=>{
+                window.eventHub.emit('render-upload', {})
+            })
+        }
     };
 
     controlle.init(view,model);
