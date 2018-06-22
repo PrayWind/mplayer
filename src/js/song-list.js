@@ -21,6 +21,13 @@
                 $(this.el).find('ul').append(domLi);
             });
         },
+        activeItem(li){
+            let $li = $(li);
+            $li.addClass('active').siblings().removeClass('active');
+        },
+        clearActive(){
+            $(this.el).find('.active').removeClass('active');
+        }
     };
     let model = {
         data:{
@@ -55,9 +62,15 @@
             window.eventHub.on('create', (songdata)=>{
                 this.model.data.songs.unshift(songdata);
                 this.view.render(this.model.data);
-            })
+            });
+            window.eventHub.on('clearListActive', ()=>{ this.view.clearActive() })
         },
         bindEvents(){
+            $(this.view.el).on('click','li',(e)=>{
+                this.view.activeItem(e.currentTarget);
+                window.eventHub.emit('modifyTitle','歌曲信息');
+                window.eventHub.emit('hideUpload', {});
+            })
         }
     };
 

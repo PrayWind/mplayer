@@ -18,7 +18,10 @@
         },
         bindevent(){
             $(view.el).on('click',()=>{
-                window.eventHub.emit('render-upload', {})
+                window.eventHub.emit('modifyTitle');
+                window.eventHub.emit('clearListActive');
+                window.eventHub.emit('render-upload', {});
+                window.eventHub.emit('renderForm', {})
             })
         }
     };

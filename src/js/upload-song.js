@@ -22,6 +22,9 @@
                 html = html.replace(`__${string}__`, data[string] || '')
             });
             $(this.el).html(html);
+        },
+        hide(){
+            $(this.el).empty();
         }
     };
     let model = {};
@@ -31,7 +34,7 @@
             this.model = model;
             this.view.render();
             this.initQiniu(this.createUptoken());
-            window.eventHub.on( 'render-upload', (data)=>{this.view.render(data)})
+            this.bindeventHub();
         },
         createUptoken(){
             let domain,token;
@@ -113,6 +116,10 @@
                 var subscription = observable.subscribe(observer); // 上传开始
             });
         },
+        bindeventHub(){
+            window.eventHub.on( 'render-upload', (data)=>{this.view.render(data)});
+            window.eventHub.on( 'hideUpload', ()=>{this.view.hide()})
+        }
     };
     controller.init(view,model);
 }
