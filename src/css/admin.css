@@ -306,6 +306,12 @@ body{
     transition: .3s;
 }
 
+.main .song-info input.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
 .main .song-info input[type=submit]:hover{
     background: #6084cf;
     background: linear-gradient(#6d94e0,#5272bb);

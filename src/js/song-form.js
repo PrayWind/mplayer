@@ -16,22 +16,39 @@
                     <input id="song-url" name="url" type="text" value="__url__" required/>
                 </div>
                 <div class="row">
-                    <input id="submit-button" name="submit-button" type="submit" />
+                    <input class="disabled" id="submit-button" name="submit-button" type="submit" />
                 </div>
             </form>
         `,
         render(data = {}){
-            let placeholder = ['name', 'singer', 'url'];
+            let placeholder = ['name', 'singer', 'url', 'id'];
             let html = this.template;
             placeholder.map((string)=>{
                 html = html.replace(`__${string}__`, data[string] || '')
             });
             $(this.el).html(html);
+            return data;
+        },
+        focusBtn(){
+            $(this.el).find('[name=submit-button]').removeClass('disabled');
+        },
+        disabledBtn(){
+            $(this.el).find('[name=submit-button]').addClass('disabled');
         }
     };
     let model = {
         data:{
             name: '', singer:'', url:'', id: ''
+        },
+        update(data){
+            var song = AV.Object.createWithoutData('Song', this.data.id);
+            song.set('name', data.name);
+            song.set('singer', data.singer);
+            song.set('url', data.url);
+            return song.save().then((response)=>{
+                Object.assign(this.data, data);
+                return response
+            });
         },
         create(data){
             var Song = AV.Object.extend('Song');
@@ -46,6 +63,7 @@
                 console.log(errer);
             })
         }
+
     };
     let controller = {
         init(view,model){
@@ -58,26 +76,69 @@
         bindevent(){
             $(this.view.el).on('submit','form', (e) => {
                 e.preventDefault();
-                let needs = 'name singer url'.split(' ');
-                let data = {};
-                needs.map((string)=>{
-                    data[string] = $(this.view.el).find(`[name="${string}"]`).val();
-                });
-                this.model.create(data).then(()=>{
-                    this.view.render({});
-                    let string = JSON.stringify(this.model.data);
-                    let object = JSON.parse(string);
-                    window.eventHub.emit('create', object);
-                    window.location.reload()
-                });
+                if(this.model.data.id){
+                    this.update()
+                }else{
+                    this.create();
+                }
+                this.view.disabledBtn()
+            });
+
+            $(this.view.el).on('change','input', (e) => {
+                let data = this.getData();
+
+                if(this.model.data !== data){
+                    this.view.focusBtn()
+                }else{
+                    this.view.disabledBtn()
+                }
             })
+        },
+        create(){
+            let data = this.getData();
+
+            this.model.create(data).then(()=>{
+                this.view.render({});
+                let string = JSON.stringify(this.model.data);
+                let object = JSON.parse(string);
+                window.eventHub.emit('create', object);
+                window.location.reload()
+            });
+
+            alert("提交成功")
+        },
+        update(){
+            let data = this.getData();
+
+            this.model.update(data).then(()=>{
+                window.eventHub.emit('update', this.JSON.parse(JSON.stringify(this.model.data)));
+            });
+
+            alert("提交成功")
+        },
+        getData(){
+            let needs = 'name singer url'.split(' ');
+            let data = {};
+            needs.map((string)=>{
+                data[string] = $(this.view.el).find(`[name="${string}"]`).val();
+            });
+            return data
         },
         bindEventHub(){
             window.eventHub.on('renderForm', (data)=>{
-                this.view.render(data)
+                this.view.render(data);
+                this.model.data = {
+                    name: '', singer:'', url:'', id: ''
+                };
+                if(this.model.data !== data){
+                    this.view.focusBtn()
+                }else{
+                    this.view.disabledBtn()
+                }
             });
             window.eventHub.on('select', (data)=>{
-                this.view.render(data)
+                this.model.data = data;
+                this.view.render(data);
             })
         }
     };
