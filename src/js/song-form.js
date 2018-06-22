@@ -53,9 +53,7 @@
             this.model = model;
             this.view.render(this.model.data);
             this.bindevent();
-            window.eventHub.on('renderForm', (data)=>{
-                this.view.render(data)
-            })
+            this.bindEventHub();
         },
         bindevent(){
             $(this.view.el).on('submit','form', (e) => {
@@ -70,7 +68,16 @@
                     let string = JSON.stringify(this.model.data);
                     let object = JSON.parse(string);
                     window.eventHub.emit('create', object);
+                    window.location.reload()
                 });
+            })
+        },
+        bindEventHub(){
+            window.eventHub.on('renderForm', (data)=>{
+                this.view.render(data)
+            });
+            window.eventHub.on('select', (data)=>{
+                this.view.render(data)
             })
         }
     };

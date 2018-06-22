@@ -13,12 +13,12 @@
             let liList = songs.map((song) => {
                 let nameSpan = $('<span></span>').addClass('song-name').text(song.name);
                 let singerSpan = $('<span></span>').addClass('singer').text(song.singer);
-                return $('<li></li>').append(nameSpan).append(singerSpan);
+                return $('<li></li>').append(nameSpan).append(singerSpan).attr('data-song-id', song.id);
             });
             $(this.el).find('ul').empty();
 
             liList.map((domLi)=>{
-                $(this.el).find('ul').append(domLi);
+                $(this.el).find('ul').prepend(domLi);
             });
         },
         activeItem(li){
@@ -60,7 +60,7 @@
         },
         bindEventHub(){
             window.eventHub.on('create', (songdata)=>{
-                this.model.data.songs.unshift(songdata);
+                this.model.data.songs.push(songdata);
                 this.view.render(this.model.data);
             });
             window.eventHub.on('clearListActive', ()=>{ this.view.clearActive() })
@@ -68,8 +68,19 @@
         bindEvents(){
             $(this.view.el).on('click','li',(e)=>{
                 this.view.activeItem(e.currentTarget);
-                window.eventHub.emit('modifyTitle','歌曲信息');
+                let songId = e.currentTarget.getAttribute('data-song-id');
+                let data;
+                let songs = this.model.data.songs;
+                for(let i = 0; i < songs.length; i++){
+                    if(songs[i].id === songId){
+                        data = songs[i];
+                        break
+                    }
+                }
+                data = JSON.parse(JSON.stringify(data));
+                window.eventHub.emit('modifyTitle','编辑歌曲');
                 window.eventHub.emit('hideUpload', {});
+                window.eventHub.emit('select', data);
             })
         }
     };
