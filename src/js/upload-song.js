@@ -15,16 +15,26 @@
                 <span class="process-bar"></span>
             </div>
         `,
-        render(data = {}){
+        render(data = {}) {
             let placeholder = ['key', 'size', 'percent'];
             let html = this.template;
-            placeholder.map((string)=>{
+            placeholder.map((string) => {
                 html = html.replace(`__${string}__`, data[string] || '')
             });
             $(this.el).html(html);
         },
-        hide(){
+        hide() {
             $(this.el).empty();
+        },
+        uploadStart() {
+            $(this.el).find('.process-bar').removeClass('complete');
+        },
+        uploading(width) {
+            $(this.el).find('.process-bar').width(width);
+            $(this.el).find('.file-select-wrap').addClass('disabled');
+        },
+        uploadSuccess() {
+            $(this.el).find('.process-bar').addClass('complete');
         }
     };
     let model = {};
@@ -39,7 +49,7 @@
         createUptoken(){
             let domain,token;
             $.ajax({
-                url: 'http://localhost:8888/uptoken',
+                url: 'http://119.28.133.233:8081/uptoken',
                 async: false,
                 success: function (res){
                     domain = res.domain;
@@ -73,8 +83,7 @@
                         }
                     });
 
-                    $(view.el).find('.process-bar').width(0);
-                    $(view.el).find('.process-bar').removeClass('complete');
+                    view.uploadStart();
                 }
                 var token = tokenDomain.token;
                 var domain = tokenDomain.domain;
@@ -92,18 +101,18 @@
                     next(res){
                         let percent = Math.floor(res.total.percent) + '%';
                         view.render({key,size,percent});
-                        $(view.el).find('.process-bar').width(percent);
+                        view.uploading(percent);
                     },
                     error(err){
                         console.log(err);
                         alert('上传失败，请重试');
+                        window.location.reload();
                     },
                     complete(res){
                         alert('上传成功');
-                        $(view.el).find('.process-bar').addClass('complete');
                         let url = 'http://' + domain + '/' + encodeURIComponent(res.key);
-
-                        window.eventHub.emit('renderForm',{name,singer,url})
+                        window.eventHub.emit('renderForm',{name,singer,url});
+                        view.uploadSuccess();
                     }
                 };
                 var observable = qiniu.upload(

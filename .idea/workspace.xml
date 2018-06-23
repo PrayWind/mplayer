@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e367c1c0-4b99-41ea-bc95-0105ed6049a8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/js/song-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/song-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/upload-song.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/upload-song.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,8 +20,17 @@
       <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="708">
-              <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+            <state relative-caret-position="654">
+              <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css/admin.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="347" column="41" selection-start-line="347" selection-start-column="33" selection-end-line="347" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -29,12 +39,12 @@
         <entry file="file://$PROJECT_DIR$/src/js/modify-title.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
-              <caret line="20" column="30" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="30" />
+              <caret line="20" column="43" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="song-list.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="song-list.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/song-list.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="405">
@@ -43,20 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css/admin.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="308" column="31" selection-start-line="308" selection-start-column="23" selection-end-line="308" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="song-form.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/song-form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="116" column="44" selection-start-line="116" selection-start-column="38" selection-end-line="116" selection-end-column="44" />
+            <state relative-caret-position="540">
+              <caret line="107" column="38" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="38" />
               <folding>
                 <element signature="e#328#334#0" expanded="true" />
                 <element signature="e#334#340#0" expanded="true" />
@@ -96,11 +97,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload-song.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="upload-song.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/upload-song.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+            <state relative-caret-position="708">
+              <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+              <folding>
+                <element signature="e#1080#4372#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,6 +125,8 @@
       <find>create</find>
       <find>console</find>
       <find>renderForm</find>
+      <find>complete</find>
+      <find>disabled</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -138,12 +144,12 @@
         <option value="$PROJECT_DIR$/src/js/admin.js" />
         <option value="$PROJECT_DIR$/src/initializers/av.js" />
         <option value="$PROJECT_DIR$/src/admin.html" />
-        <option value="$PROJECT_DIR$/src/js/upload-song.js" />
         <option value="$PROJECT_DIR$/src/js/modify-title.js" />
-        <option value="$PROJECT_DIR$/src/css/admin.css" />
         <option value="$PROJECT_DIR$/src/js/add-song.js" />
         <option value="$PROJECT_DIR$/src/js/song-form.js" />
         <option value="$PROJECT_DIR$/src/js/song-list.js" />
+        <option value="$PROJECT_DIR$/src/css/admin.css" />
+        <option value="$PROJECT_DIR$/src/js/upload-song.js" />
       </list>
     </option>
   </component>
@@ -187,6 +193,12 @@
               <item name="music-player" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="music-player" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-player" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -224,12 +236,12 @@
       <updated>1529084450429</updated>
       <workItem from="1529084452204" duration="1344000" />
       <workItem from="1529335841160" duration="2909000" />
-      <workItem from="1529420106312" duration="113938000" />
+      <workItem from="1529420106312" duration="122377000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118191000" />
+    <option name="totallyTimeSpent" value="126630000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -260,6 +272,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/admin.html">
@@ -328,13 +345,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/event-hub.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -342,31 +352,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/event-hub.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15" selection-start-column="7" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/song-list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="107" selection-start-line="15" selection-start-column="107" selection-end-line="15" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/upload-song.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="654">
-          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="308" column="31" selection-start-line="308" selection-start-column="23" selection-end-line="308" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/modify-title.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="30" />
+          <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -379,8 +382,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/song-form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="116" column="44" selection-start-line="116" selection-start-column="38" selection-end-line="116" selection-end-column="44" />
+        <state relative-caret-position="540">
+          <caret line="107" column="38" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="38" />
           <folding>
             <element signature="e#328#334#0" expanded="true" />
             <element signature="e#334#340#0" expanded="true" />
@@ -392,10 +395,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/song-list.js">
+    <entry file="file://$PROJECT_DIR$/src/css/admin.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" column="107" selection-start-line="15" selection-start-column="107" selection-end-line="15" selection-end-column="107" />
+        <state relative-caret-position="351">
+          <caret line="347" column="41" selection-start-line="347" selection-start-column="33" selection-end-line="347" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/modify-title.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/upload-song.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="708">
+          <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+          <folding>
+            <element signature="e#1080#4372#0" />
+          </folding>
         </state>
       </provider>
     </entry>
