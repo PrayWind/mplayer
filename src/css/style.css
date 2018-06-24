@@ -247,3 +247,117 @@
 #player .options a i{
     font-size: 26px;
 }
+
+#player .options a:first-child,
+#player .options a:last-child,{
+    padding: 20%;
+}
+
+#player .options a:first-child i,
+#player .options a:last-child i{
+    font-size: 24px;
+    color: #787878;
+}
+
+#songlist{
+    position: fixed;
+    height: 70vh;
+    width: 100vw;
+    bottom: -71vh;
+    background-color: white;
+    z-index: 30;
+    border-radius: 10px 10px 0 0;
+    padding-top: 60px;
+    transition: 0.3s;
+}
+
+#songlist.active{
+    bottom: 0;
+}
+
+.mask.active{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 20;
+}
+
+#songlist .songlist-ul{
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+#songlist .header{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #eee;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+}
+
+#songlist .header-container{
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+#songlist .header h2{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    float: left;
+}
+
+#songlist .header .amount{
+    font-size: 14px;
+    float: right;
+    color: #999;
+}
+
+#songlist .songlist-container{
+    height: 100%;
+    overflow-y: auto;
+    padding: 0 20px;
+}
+
+#songlist .songlist-container::-webkit-scrollbar{
+    width: 0!important;
+    display: none!important;
+}
+
+#songlist .songlist-ul li{
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 480px) {
+    #songlist .songlist-ul li{
+        border-bottom: 1px solid #eee;
+    }
+}
+
+#songlist .songlist-ul li span{
+    line-height: 1.5em;
+    display: block;
+}
+
+#songlist .songlist-ul li span.song-title{
+    font-size: 16px;
+    color: #222;
+}
+
+#songlist .songlist-ul li span.singer{
+    font-size: 14px;
+    color: #999;
+}
+
+#songlist .songlist-ul li.active span.song-title,
+#songlist .songlist-ul li.active span.singer{
+    color: #dc2a2a;
+}
