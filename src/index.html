@@ -4,9 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>网易云音乐-首页</title>
+    <title>首页</title>
+    <link rel="stylesheet" href="../node_modules/swiper/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_719059_xjdtsuwvdld.css">
 </head>
 <body>
+    <div id="player">
+        <div class="song-title">
+            <h1>歌曲名称</h1>
+            <span class="singer">歌手</span>
+        </div>
+        <main id="main">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="cover-wrap">
+                        <div class="record rotating">
+                            <div class="cover">
+                                <img src="images/305979.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="lyric">
+                        <div class="lyric-inner">
+                            <p>此歌曲暂时没有歌词</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </main>
 
+        <div class="process">
+            <div class="process-wrap">
+                <div class="process-bar">
+                    <div class="process-play" style="transform: translateX(0%)">
+                        <div class="process-btn">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="time">
+                <div class="current">0:00</div>
+                <div class="total">3:14</div>
+            </div>
+        </div>
+        <div class="options">
+            <a href="javascript:;" class="option-prev"><i class="iconfont icon-prev"></i></a>
+            <a href="javascript:;" class="option-play"><i class="iconfont icon-timeout"></i></a>
+            <a href="javascript:;" class="option-next"><i class="iconfont icon-next"></i></a>
+        </div>
+    </div>
 </body>
+<script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+<script src="../node_modules/jQuery/tmp/jquery.js"></script>
+<script src="../node_modules/jsmediatags/dist/jsmediatags.min.js"></script>
+<script src="../node_modules/swiper/dist/js/swiper.min.js"></script>
+<script src="./initializers/av.js"></script>
+<script src="./initializers/init-swiper.js"></script>
+<script src="./js/admin/event-hub.js"></script>
 </html>
