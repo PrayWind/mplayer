@@ -16,7 +16,20 @@
         init(view,model){
             this.view = view;
             this.model = model;
+            this.bindEvents();
             this.bindEventHub();
+        },
+        bindEvents(){
+            $(this.view.el).find('.process-bar').on('click',(e)=>{
+                let schedule = Math.floor((e.pageX-e.currentTarget.parentNode.offsetLeft) / e.currentTarget.offsetWidth * 100);
+                if(schedule>=100){
+                    schedule = 100
+                }else if(schedule<=0){
+                    schedule = 0
+                }
+                let currentTime = this.model.times.durationTime * schedule / 100;
+                window.eventHub.emit('changeCurrentTime', currentTime);
+            });
         },
         bindEventHub(){
             window.eventHub.on('currentTime',(curtime)=>{

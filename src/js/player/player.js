@@ -8,6 +8,10 @@
                 audio[0].addEventListener('loadedmetadata', (e)=> window.eventHub.emit('getDuration', e.target.duration) );
                 audio[0].addEventListener('timeupdate', (e) => window.eventHub.emit('currentTime', e.target.currentTime) );
                 audio[0].addEventListener('ended', () => { window.eventHub.emit('songEnd') });
+                window.eventHub.on('changeCurrentTime',(currentTime)=>{
+                    console.log(currentTime);
+                    audio[0].currentTime = currentTime;
+                })
             }
             if(status === 'playing'){
                 this.playing();
@@ -81,7 +85,6 @@
                 this.view.render(this.model.data);
             });
             window.eventHub.on('songEnd', ()=>{
-                console.log('结束');
                 this.model.data.status = 'paused';
                 this.view.render(this.model.data);
                 window.eventHub.emit('cutSong','next');

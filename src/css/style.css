@@ -195,6 +195,7 @@
     right: -4px;
     top: -10px;
     z-index: 5;
+    cursor: pointer;
 }
 
 #player .process .process-wrap .process-play .process-btn:after{
@@ -212,6 +213,10 @@
 #player .process .time{
     color:#666;
     font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #player .process .time .current,#player .process .time .total{
