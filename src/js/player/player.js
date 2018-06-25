@@ -8,10 +8,9 @@
                 audio[0].addEventListener('loadedmetadata', (e)=> window.eventHub.emit('getDuration', e.target.duration) );
                 audio[0].addEventListener('timeupdate', (e) => window.eventHub.emit('currentTime', e.target.currentTime) );
                 audio[0].addEventListener('ended', () => { window.eventHub.emit('songEnd') });
-                window.eventHub.on('changeCurrentTime',(currentTime)=>{
-                    console.log(currentTime);
-                    audio[0].currentTime = currentTime;
-                })
+                window.eventHub.on('changeCurrentTime',(currentTime)=> audio[0].currentTime = currentTime );
+                let record = $(this.el).find('.record');
+                $(this.el).find('.cover-wrap').empty().append(record);
             }
             if(status === 'playing'){
                 this.playing();
@@ -21,12 +20,12 @@
         },
         playing(){
             $(this.el).find('.option-play i').addClass('icon-timeout').removeClass('icon-start');
-            $(this.el).find('.record').addClass('rotating');
+            $(this.el).find('.record').addClass('play');
             $(this.el).find('audio')[0].play()
         },
         paused(){
             $(this.el).find('.option-play i').addClass('icon-start').removeClass('icon-timeout');
-            $(this.el).find('.record').removeClass('rotating');
+            $(this.el).find('.record').removeClass('play');
             $(this.el).find('audio')[0].pause();
         },
     };
