@@ -16,6 +16,7 @@
 }
 
 #player .song-title{
+    height: 91px;
     text-align: center;
     padding: 20px;
 }
@@ -237,7 +238,10 @@
 }
 
 #player .options a{
+    display: inline-block;
     width: 18%;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
     color: #666;
     user-select: none;
@@ -248,9 +252,8 @@
     font-size: 26px;
 }
 
-#player .options a:first-child,
-#player .options a:last-child,{
-    padding: 20%;
+#player .options a.option-play i{
+    font-size: 30px;
 }
 
 #player .options a:first-child i,
