@@ -68,8 +68,8 @@
             this.view = view;
             this.model = model;
             this.getSongs();
-            this.bindEventHub();
             this.bindEvents();
+            this.bindEventHub();
 
         },
         getSongs(){
@@ -82,12 +82,44 @@
             window.eventHub.on('openlist', ()=>{
                 this.view.openlist();
             });
+            window.eventHub.on('cutSong', (cut)=>{
+                let songs = this.model.data.songs;
+                let currentPlayId = this.model.data.currentPlayId;
+                let data;
+                if(cut === 'next'){
+                    for(let i=0; i<songs.length;i++){
+                        if(songs[i].id === currentPlayId){
+                            let n = i-1;
+                            if(n < 0){
+                                n = songs.length - 1
+                            }
+                            data = songs[n];
+                            this.model.data.currentPlayId = data.id;
+                            break
+                        }
+                    }
+                }else if(cut === 'prev'){
+                    for(let i=0; i<songs.length;i++){
+                        if(songs[i].id === currentPlayId){
+                            let n = i+1;
+                            if(n >= songs.length){
+                                n = 0
+                            }
+                            data = songs[n];
+                            this.model.data.currentPlayId = data.id;
+                            break
+                        }
+                    }
+                }
+                data = JSON.parse(JSON.stringify(data));
+                window.eventHub.emit('select', data);
+                this.view.render(this.model.data);
+            });
         },
         defaultSelect(){
-            let currentPlayId = this.model.data.currentPlayId;
             let songs = this.model.data.songs;
-            if(!this.model.currentPlayId){
-                currentPlayId = songs[songs.length-1].id;
+            if(!this.model.data.currentPlayId){
+                this.model.data.currentPlayId = songs[songs.length-1].id;
             }
             let data = songs[songs.length-1];
             data = JSON.parse(JSON.stringify(data));
