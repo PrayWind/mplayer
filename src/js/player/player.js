@@ -5,19 +5,15 @@
             let {song, status} = data;
             if($(this.el).find('audio').attr('src') !== song.url){
                 let audio = $(this.el).find('audio').attr('src', song.url);
-                audio.onended = ()=>{ window.eventHub.emit('songEnd') }
+                audio[0].addEventListener('loadedmetadata', (e)=> window.eventHub.emit('getDuration', e.target.duration) );
+                audio[0].addEventListener('timeupdate', (e) => window.eventHub.emit('currentTime', e.target.currentTime) );
+                audio[0].addEventListener('ended', () => { window.eventHub.emit('songEnd') });
             }
             if(status === 'playing'){
                 this.playing();
             }else{
                 this.paused();
             }
-
-            setTimeout(()=>{
-                let currentTime = $(this.el).find('audio')[0].currentTime;
-                let duration = $(this.el).find('audio')[0].duration;
-                window.eventHub.emit('songTime',{currentTime,duration})
-            }, 500)
         },
         playing(){
             $(this.el).find('.option-play i').addClass('icon-timeout').removeClass('icon-start');
@@ -87,7 +83,8 @@
             window.eventHub.on('songEnd', ()=>{
                 console.log('结束');
                 this.model.data.status = 'paused';
-                this.view.render(this.model.data)
+                this.view.render(this.model.data);
+                window.eventHub.emit('cutSong','next');
             })
         }
     };
