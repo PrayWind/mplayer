@@ -26,6 +26,10 @@
             this.bindEventHub();
         },
         bindEventHub(){
+            window.eventHub.on('defaultSelect', (data)=>{
+                this.model.data = data;
+                this.view.render(data);
+            })
             window.eventHub.on('select', (data)=>{
                 this.model.data = data;
                 this.view.render(data);

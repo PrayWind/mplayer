@@ -271,6 +271,7 @@
     z-index: 30;
     border-radius: 10px 10px 0 0;
     padding-top: 60px;
+    overflow: hidden;
     transition: 0.3s;
 }
 
@@ -278,10 +279,16 @@
     bottom: 0;
 }
 
+.mask{
+    opacity: 0;
+    transition: 0.3s opacity;
+}
+
 .mask.active{
     position: fixed;
     top: 0;
     left: 0;
+    opacity: 1;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,0.6);

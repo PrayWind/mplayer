@@ -91,7 +91,7 @@
             }
             let data = songs[songs.length-1];
             data = JSON.parse(JSON.stringify(data));
-            window.eventHub.emit('select', data);
+            window.eventHub.emit('defaultSelect', data);
         },
         bindEvents(){
             $(this.view.el).on('click','li',(e)=>{
