@@ -5,18 +5,79 @@
             let {song, status} = data;
             if($(this.el).find('audio').attr('src') !== song.url){
                 let audio = $(this.el).find('audio').attr('src', song.url);
+                if(song.cover){
+                    $(this.el).find('.cover img').attr('src', song.cover);
+                }else{
+                    $(this.el).find('.cover img').attr('src', './images/default-cover.png')
+                }
                 audio[0].addEventListener('loadedmetadata', (e)=> window.eventHub.emit('getDuration', e.target.duration) );
-                audio[0].addEventListener('timeupdate', (e) => window.eventHub.emit('currentTime', e.target.currentTime) );
                 audio[0].addEventListener('ended', () => { window.eventHub.emit('songEnd') });
-                window.eventHub.on('changeCurrentTime',(currentTime)=> audio[0].currentTime = currentTime );
                 let record = $(this.el).find('.record');
                 $(this.el).find('.cover-wrap').empty().append(record);
             }
+            window.eventHub.on('changeCurrentTime', (currentTime)=> {
+                if(song.lyrics && song.lyrics.length > 10) this.showLycics(currentTime);
+                $(this.el).find('audio')[0].currentTime = currentTime
+            });
+            $(this.el).find('audio')[0].addEventListener('timeupdate', (e) => {
+                if(song.lyrics && song.lyrics.length > 10) this.showLycics(e.target.currentTime);
+                window.eventHub.emit('currentTime', e.target.currentTime)
+            } );
+
             if(status === 'playing'){
                 this.playing();
             }else{
                 this.paused();
             }
+
+            let {lyrics} = song;
+            $(this.el).find('.lyric > .lyric-inner').empty();
+            $(this.el).find('.lyric').height( $(this.el).find(".cover-wrap").height() );
+            if(lyrics){
+                lyrics.split('\n').map((string)=>{
+                    let p = document.createElement('p');
+                    let regex = /\[([\d:.]+)\](.+)/;
+                    let matches = string.match(regex);
+                    if(matches){
+                        p.textContent = matches[2];
+                        let time = matches[1];
+                        let parts = time.split(':');
+                        let minutes = parts[0];
+                        let seconds = parts[1];
+                        let newTime = parseInt(minutes,10) * 60 + parseFloat(seconds, 10);
+                        p.setAttribute('data-time', newTime)
+                    }else{
+                        p.textContent = string
+                    }
+                    $(this.el).find('.lyric>.lyric-inner').append(p)
+                });
+            }else{
+                let p = document.createElement('p');
+                $(p).text("此歌曲暂没有歌词");
+                $(this.el).find('.lyric>.lyric-inner').append(p)
+            }
+        },
+        showLycics(time){
+            let allLines = $(this.el).find('.lyric>.lyric-inner p');
+            let line;
+            for(let i = 0; i < allLines.length; i++){
+                if(i === allLines.length-1){
+                    line = allLines[i];
+                    break
+                }else {
+                    let currentTime = allLines.eq(i).attr('data-time');
+                    let nextTime = allLines.eq(i+1).attr('data-time');
+                    if(currentTime <= time && nextTime > time){
+                        line = allLines[i];
+                        break
+                    }
+                }
+            }
+            $(line).addClass('active').siblings().removeClass('active');
+            let lineTop = line.getBoundingClientRect().top;
+            let warpTop = $(this.el).find('.lyric>.lyric-inner')[0].getBoundingClientRect().top;
+            let top = warpTop - lineTop;
+            $(this.el).find('.lyric>.lyric-inner').css("transform",`translateY(${top}px)`);
         },
         playing(){
             $(this.el).find('.option-play i').addClass('icon-timeout').removeClass('icon-start');
@@ -35,7 +96,8 @@
                 id: '',
                 name: '',
                 singer: '',
-                url: ''
+                cover: '',
+                lyrics: ''
             },
             status: undefined,
         },
