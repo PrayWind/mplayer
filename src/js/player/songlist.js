@@ -45,6 +45,10 @@
         closelist(){
             this.$list.removeClass('active');
             this.$mask.removeClass('active');
+        },
+        scrollToCurrent(){
+            let targetTop = $(this.el).find('li.active')[0].offsetTop;
+            $(this.el).scrollTop(targetTop - 120) 
         }
     };
     let model = {
@@ -114,6 +118,7 @@
                 data = JSON.parse(JSON.stringify(data));
                 window.eventHub.emit('select', data);
                 this.view.render(this.model.data);
+                this.view.scrollToCurrent();
             });
         },
         defaultSelect(){
