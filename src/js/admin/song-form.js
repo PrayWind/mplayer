@@ -16,12 +16,20 @@
                     <input id="song-url" name="url" type="text" value="__url__" required/>
                 </div>
                 <div class="row">
+                    <label for="cover">封面链接：</label>
+                    <input id="cover" name="cover" type="text" value="__cover__" />
+                </div>
+                <div class="row">
+                    <label for="lyrics">歌&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;词：</label>
+                    <textarea id="lyrics" name="lyrics" maxlength="1000">__lyrics__</textarea>
+                </div>
+                <div class="row">
                     <input class="disabled" id="submit-button" name="submit-button" type="submit" />
                 </div>
             </form>
         `,
         render(data = {}){
-            let placeholder = ['name', 'singer', 'url', 'id'];
+            let placeholder = ['name', 'singer', 'url', 'cover', 'lyrics', 'id'];
             let html = this.template;
             placeholder.map((string)=>{
                 html = html.replace(`__${string}__`, data[string] || '')
@@ -45,6 +53,8 @@
             song.set('name', data.name);
             song.set('singer', data.singer);
             song.set('url', data.url);
+            song.set('cover', data.cover);
+            song.set('lyrics', data.lyrics);
             return song.save().then((response)=>{
                 Object.assign(this.data, data);
                 return response;
@@ -56,6 +66,8 @@
             song.set('name', data.name);
             song.set('singer', data.singer);
             song.set('url', data.url);
+            song.set('cover', data.cover);
+            song.set('lyrics', data.lyrics);
             return song.save().then((newSong) => {
                 let {id, attributes} = newSong;
                 Object.assign(this.data = {id, ...attributes });
@@ -95,6 +107,16 @@
                 }else{
                     this.view.disabledBtn()
                 }
+            });
+
+            $(this.view.el).on('change','textarea', (e) => {
+                let data = this.getData();
+
+                if(this.model.data !== data){
+                    this.view.focusBtn()
+                }else{
+                    this.view.disabledBtn()
+                }
             })
         },
         create(){
@@ -119,7 +141,7 @@
             });
         },
         getData(){
-            let needs = 'name singer url'.split(' ');
+            let needs = 'name singer url cover lyrics'.split(' ');
             let data = {};
             needs.map((string)=>{
                 data[string] = $(this.view.el).find(`[name="${string}"]`).val();

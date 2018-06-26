@@ -251,7 +251,8 @@ body{
 }
 
 .main .song-info .row{
-    margin-top: 40px;
+    margin-top: 30px;
+    line-height: 40px;
 }
 
 .main .song-info .row:first-child{
@@ -266,13 +267,15 @@ body{
     letter-spacing: 0.1em;
     font-size: 16px;
     color: #888;
+    float: left;
 }
 
 .main .song-info .row:last-child label{
     height: 1px;
 }
 
-.main .song-info input[type=text]{
+.main .song-info input[type=text],
+.main .song-info textarea{
     background: #fff;
     box-shadow: 0 3px 5px -4px rgba(0,0,0,.4) inset, -1px 0 3px -2px rgba(0,0,0,.1) inset;
     border: #ccc solid 1px;
@@ -286,6 +289,13 @@ body{
     transition: .3s ease-in;
     -moz-transition: .3s ease-in;
     padding: 10px;
+    clear: left;
+}
+
+.main .song-info textarea{
+    min-height: 6em;
+    resize: vertical;
+    line-height: 1.5em;
 }
 
 .main .song-info input[type=submit]{
