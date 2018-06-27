@@ -6,6 +6,7 @@
             if($(this.el).find('audio').attr('src') !== song.url){
                 let audio = $(this.el).find('audio').attr('src', song.url);
                 if(song.cover){
+                    $(this.el).find('.cover').empty();
                     let coverImg = document.createElement('img');
                     $(coverImg).attr('src', song.cover);
                     $(this.el).find('.cover').append(coverImg);
