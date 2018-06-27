@@ -6,9 +6,9 @@
             if($(this.el).find('audio').attr('src') !== song.url){
                 let audio = $(this.el).find('audio').attr('src', song.url);
                 if(song.cover){
-                    $(this.el).find('.cover img').attr('src', song.cover);
-                }else{
-                    $(this.el).find('.cover img').attr('src', './images/default-cover.png')
+                    let coverImg = document.createElement('img');
+                    $(coverImg).attr('src', song.cover);
+                    $(this.el).find('.cover').append(coverImg);
                 }
                 audio[0].addEventListener('loadedmetadata', (e)=> window.eventHub.emit('getDuration', e.target.duration) );
                 audio[0].addEventListener('ended', () => { window.eventHub.emit('songEnd') });
