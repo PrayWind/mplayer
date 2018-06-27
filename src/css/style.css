@@ -77,6 +77,11 @@ body{
     }
 }
 
+
+#player .swiper-slide{
+    width: 100%!important;
+}
+
 #player .cover-wrap:after{
     content: '';
     display: block;
