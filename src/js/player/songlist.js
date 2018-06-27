@@ -48,13 +48,14 @@
         },
         scrollToCurrent(){
             let targetTop = $(this.el).find('li.active')[0].offsetTop;
-            $(this.el).scrollTop(targetTop - 120) 
+            $(this.el).scrollTop(targetTop - 120)
         }
     };
     let model = {
         data:{
             songs:[ ],
             currentPlayId: undefined,
+            status: 'close',
         },
         find(){
             var query = new AV.Query('Song');
@@ -85,6 +86,10 @@
         bindEventHub(){
             window.eventHub.on('openlist', ()=>{
                 this.view.openlist();
+                let tit = document.title,
+                    path = location.href.replace(/#.*$/, '') + '#!openlist';
+                history.pushState({title: tit, path: path}, tit, path);
+                this.model.data.status = 'open';
             });
             window.eventHub.on('cutSong', (cut)=>{
                 let songs = this.model.data.songs;
@@ -147,6 +152,12 @@
                 window.eventHub.emit('select', data);
             });
             this.view.$mask.on('click', () => this.view.closelist() );
+            window.addEventListener('popstate', (e)=>{
+                if(this.model.data.status === 'open'){
+                    this.view.closelist();
+                    this.model.data.status = 'close';
+                }
+            })
         },
     };
 
