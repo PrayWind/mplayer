@@ -1,0 +1,10 @@
+import _ from 'lodash';
+import './js/initializers/av.js';
+import './js/admin/add-song.js';
+import './js/admin/event-hub.js';
+import './js/admin/modify-title.js';
+import './js/admin/song-form.js';
+import './js/admin/song-list.js';
+import './js/admin/upload-song.js';
+import './css/reset.css';
+import './css/admin.css';

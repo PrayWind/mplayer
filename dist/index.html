@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mPlayer</title>
+    <link href="https://cdn.bootcss.com/Swiper/4.3.0/css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_719059_u7hh6ms3a7q.css">
+</head>
+<body>
+    <div id="player">
+        <div class="song-title">
+            <h1>歌曲名称</h1>
+            <span class="singer">歌手</span>
+        </div>
+        <main id="main">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="cover-wrap">
+                        <div class="record">
+                            <div class="cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="lyric">
+                        <div class="lyric-inner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </main>
+        <div class="process">
+            <div class="process-wrap">
+                <div class="process-bar">
+                    <div class="process-play" style="transform: translateX(0%)">
+                        <div class="process-btn">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="time">
+                <div class="current">00:00</div>
+                <div class="total">00:00</div>
+            </div>
+        </div>
+        <div class="options">
+            <a href="javascript:;" class="option-playmode"><i class="iconfont icon-loop"></i></a>
+            <a href="javascript:;" class="option-prev"><i class="iconfont icon-prev"></i></a>
+            <a href="javascript:;" class="option-play"><i class="iconfont icon-start"></i></a>
+            <a href="javascript:;" class="option-next"><i class="iconfont icon-next"></i></a>
+            <a href="javascript:;" class="option-songlist"><i class="iconfont icon-liebiao"></i></a>
+        </div>
+        <audio src="#"></audio>
+    </div>
+    <div class="mask"></div>
+    <div id="songlist" class="">
+        <div class="header">
+            <div class="header-container">
+                <h2>歌曲列表</h2>
+                <!--<div class="amount">共123首</div>-->
+            </div>
+        </div>
+        <div class="songlist-container">
+            <ul class="songlist-ul">
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="./av-min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jsmediatags/3.9.0/jsmediatags.min.js"></script>
+<script src="https://cdn.bootcss.com/Swiper/4.3.0/js/swiper.min.js"></script>
+<script src="./app.bundle.js"></script>
+</html>
