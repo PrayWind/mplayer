@@ -126,7 +126,9 @@ body{
     position: absolute;
     left: 0;
     top: 0;
-    background: url(../images/record.png) no-repeat center;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #333 url(../images/record.png) no-repeat center;
     background-size: cover;
     z-index: 1;
 }
@@ -155,6 +157,7 @@ body{
     min-height: 250px;
     padding: 1.5em;
     overflow: hidden;
+    mask: linear-gradient(top,rgba(0,0,0,0),#fff 25%,#fff 75%,rgba(0,0,0,0));
     -webkit-mask: -webkit-linear-gradient(top,rgba(0,0,0,0),#fff 25%,#fff 75%,rgba(0,0,0,0));
     display: flex;
     display: -webkit-flex;
@@ -278,7 +281,7 @@ body{
     display: flex;
     display: -webkit-flex;
     justify-content: center;
-    margin-top: 30px;
+    margin: 30px auto;
 }
 
 #player .options a{
